@@ -105,6 +105,7 @@ const starWarsCharacters = [
   Crea una variabile chiamata "characters" e assegnale un array vuoto
 */
 let characters = []
+console.log('characters', characters)
 /* ESERCIZIO 2
   Utilizzando un ciclo for, cicla l'array "starWarsCharacters". 
   Dovrai accedere alla proprietà "name" di ogni oggetto in esso contenuto, e inserirla nell'array "starWarsCharacters" creato precedentemente.
@@ -118,21 +119,99 @@ for (let i = 0; i < starWarsCharacters.length; i++){
   tutti gli oggetto femminili, CON QUESTA STRUTTURA: 
   {name: Leia Organa, hair_color: "brown", eye_color: "brown"}
 */
-
+const femaleCharacters=[
+  {
+    name: 'Leia Organa',
+    height: '150',
+    mass: '49',
+    hair_color: 'brown',
+    skin_color: 'light',
+    eye_color: 'brown',
+    birth_year: '19BBY',
+    gender: 'female',
+  },
+  {
+    name: 'Beru Whitesun lars',
+    height: '165',
+    mass: '75',
+    hair_color: 'brown',
+    skin_color: 'light',
+    eye_color: 'blue',
+    birth_year: '47BBY',
+    gender: 'female',
+  }
+]
+console.log('female', femaleCharacters)
 /* ESERCIZIO 4
   Crea un oggetto "eyeColor" che abbia le seguenti proprietà: blue, yellow, brown, red, blue-gray.
   Ad ognuna di queste proprietà assegna come valore un array vuoto.
 */
+const eyeColor={
+  blue:[],
+  yellow:[],
+  brown:[],
+  red:[],
+  "blue-gray":[]
+}
+console.log('eyeColor', eyeColor)
 
 /* ESERCIZIO 5
   Utilizza uno switch statement per inserire uno ad uno gli oggetti dei personaggi di "starWarsCharacters" negli array relativi al colore degli occhi precedentemente creati.
   Ogni personaggio dovrà finire nell'array corrispondente al suo colore degli occhi (al valore della sua proprietà "eye_color").
 */
+switch(starWarsCharacters){
+  case 'Luke Skywalker':
+  eye_color= 'blue'
+  break
+
+  case 'C-3PO':
+  eye_color= 'yellow'
+  break
+
+  case 'R2-D2':
+  eye_color= 'red'
+  break
+    
+  case'Darth Vader':
+  eye_color= 'yellow'
+  break
+
+  case 'Leia Organa':
+  eye_color= 'brown'
+  break
+
+  case 'Owen Lars':
+  eye_color= 'brown, gray'
+  break
+
+  case'Beru Whitesun lars':
+  eye_color= 'blue'
+  break
+
+  case 'R5-D4':
+  eye_color= 'red'
+  break
+    
+  case'Biggs Darklighter':
+  eye_color= 'brown'
+  break
+
+  case'Obi-Wan Kenobi':
+  eye_color= 'blue-gray'
+  break
+  
+}
 
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata "crewMass".
 */
-
+let i = 0
+let crewMass = 0
+while (i< starWarsCharacters.length){
+  crewMass += Number(starWarsCharacters[i].mass )
+  i++
+}
+console.log("crewmass totale", crewMass)
 /* ESERCIZIO 7
   Crea uno switch statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'impotetica astronave contenente i personaggi dell'array "starWarsCharacters"
   (sei in difficoltà? cerca su un motore di ricerca switch case e conditionals)
@@ -145,11 +224,29 @@ for (let i = 0; i < starWarsCharacters.length; i++){
 
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
+switch(crewMass){
+  case (crewMass < 500) : console.log("Ship is under loaded");
+  break;
+  case (crewMass === 500) : console.log("Ship is half loaded");
+  break;
+  case (crewMass > 700) : console.log("Warning: Load is over 700");
+  break;
+  case (crewMass > 900) : console.log("Critical Load: Over 900");
+  break;
+  case (crewMass > 1000) : console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
+
+}
+
 
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
-
+for(let i = 0; i < starWarsCharacters.length; i++){
+  if (starWarsCharacters[i].gender === "n/a") {
+    starWarsCharacters[i].gender = "robot"
+  } 
+}
+console.log(starWarsCharacters)
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "characters" le stringhe corrispondenti a personaggi con lo stesso nome.
   Usa uno più for loop per raggiungere il risultato
